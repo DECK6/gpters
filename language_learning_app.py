@@ -7,7 +7,7 @@ import os
 load_dotenv()
 
 # Initialize Claude API client
-anthropic = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+anthropic = Anthropic(api_key=st.secret("ANTHROPIC_API_KEY"))
 
 def claude_query(prompt):
     try:
