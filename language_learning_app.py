@@ -59,28 +59,28 @@ def generate_lesson(language, difficulty, custom_text=None):
         st.write("번역:", translated)
     
     # 어휘 학습
-    vocabulary_prompt = f"List and explain 5 key vocabulary words from this {language} sentence, suitable for {difficulty} level learners: '{original_text}'"
+    vocabulary_prompt = f"List and explain 5 key vocabulary words from this {language} sentence, suitable for {difficulty} level learners: '{original_text}'the answer is must be korean."
     vocabulary_explanation = claude_query(vocabulary_prompt)
     if vocabulary_explanation:
         st.subheader("주요 어휘")
         st.write(vocabulary_explanation)
     
     # 문법 설명
-    grammar_prompt = f"Explain the key grammar points in this {language} sentence, focusing on {difficulty} level: '{original_text}'"
+    grammar_prompt = f"Explain the key grammar points in this {language} sentence, focusing on {difficulty} level: '{original_text}'the answer is must be korean."
     grammar_explanation = claude_query(grammar_prompt)
     if grammar_explanation:
         st.subheader("문법 포인트")
         st.write(grammar_explanation)
     
     # 발음 가이드
-    pronunciation_prompt = f"Provide a pronunciation guide for this {language} sentence: '{original_text}'"
+    pronunciation_prompt = f"Provide a pronunciation guide for this {language} sentence: '{original_text}'the answer is must be korean."
     pronunciation_guide = claude_query(pronunciation_prompt)
     if pronunciation_guide:
         st.subheader("발음 가이드")
         st.write(pronunciation_guide)
     
     # 문화적 참고 사항
-    culture_prompt = f"Provide cultural context or interesting facts related to this {language} sentence: '{original_text}'"
+    culture_prompt = f"Provide cultural context or interesting facts related to this {language} sentence: '{original_text}' the answer is must be korean."
     cultural_notes = claude_query(culture_prompt)
     if cultural_notes:
         st.subheader("문화적 참고 사항")
