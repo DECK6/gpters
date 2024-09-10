@@ -12,7 +12,7 @@ anthropic = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 def claude_query(prompt):
     try:
         response = anthropic.completions.create(
-            model="claude-2",
+            model="claude-3-5-sonnet-20240620",
             prompt=f"{HUMAN_PROMPT}{prompt}{AI_PROMPT}",
             max_tokens_to_sample=300,
         )
