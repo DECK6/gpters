@@ -12,15 +12,21 @@ anthropic = Anthropic(api_key=api_key)
 
 def claude_query(prompt):
     try:
-        response = anthropic.completions.create(
-            model="claude-3-5-sonnet-20240620",
-            prompt=f"{HUMAN_PROMPT}{prompt}{AI_PROMPT}",
-            max_tokens_to_sample=300,
+        message = anthropic.messages.create(
+            model="claude-3-sonnet-20240229",
+            max_tokens=300,
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
         )
-        return response.completion.strip()
+        return message.content[0].text
     except Exception as e:
         st.error(f"Claude API 오류: {str(e)}")
         return None
+
 
 def generate_lesson(language, difficulty, custom_text=None):
     st.subheader(f"{language} - {difficulty} 레벨 학습")
